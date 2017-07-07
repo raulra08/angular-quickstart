@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Application {
-id: number;
-name: string;
-}
+import { Application } from './application';
 
 const APPS: Application[] = [
   { id: 1, name: 'DSP' },
@@ -24,14 +20,7 @@ const APPS: Application[] = [
           <span class="badge">{{app.id}}</span> {{app.name}}
       </li>
     </ul>
-    <div *ngIf="selectedApp">
-      <h2>{{selectedApp.name}} details!</h2>
-      <div><label>id: </label>{{selectedApp.id}}</div>
-      <div>
-          <label>name: </label>
-          <input [(ngModel)]="selectedApp.name" placeholder="name"/>
-      </div>
-    </div>
+    <app-detail [app]="selectedApp"></app-detail>
   `,
   styles: [`
     .selected {
