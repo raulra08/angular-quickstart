@@ -1,16 +1,10 @@
-import { Component } from '@angular/core';
-import { Application } from './application';
+import { Component, OnInit } from '@angular/core';
 
-const APPS: Application[] = [
-  { id: 1, name: 'DSP' },
-  { id: 2, name: 'Narco' },
-  { id: 3, name: 'Bombasto' },
-  { id: 4, name: 'Celeritas' }
-];
+import { Application } from './application';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'my-app',
-
   template: `
     <h1>{{title}}</h1>
 
@@ -70,15 +64,27 @@ const APPS: Application[] = [
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [AppService]
 })
 
-export class AppComponent  {
+export class AppComponent implements OnInit {
   title = 'Digital Security Platform';
-  apps = APPS;
+  apps: Application[];
   selectedApp: Application;
+
+  constructor(private appService: AppService) { }
+
+  getApps(): void {
+    this.appService.getApps().then(apps => this.apps = apps);
+  }
+
+  ngOnInit(): void {
+    this.getApps();
+  }
 
   onSelect(app: Application): void {
     this.selectedApp = app;
   }
+
 }
