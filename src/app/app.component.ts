@@ -1,6 +1,38 @@
 import { Component } from '@angular/core';
 
+export class Application {
+id: number;
+name: string;
+}
+
+const APPS: Application[] = [
+  { id: 1, name: 'DSP' },
+  { id: 2, name: 'Narco' },
+  { id: 3, name: 'Bombasto' },
+  { id: 4, name: 'Celeritas' }
+];
+
 @Component({
+  selector: 'my-app',
+
+  template: `
+    <h1>{{title}}</h1>
+
+    <h2>My Heroes</h2>
+    <ul class="apps">
+      <li *ngFor="let app of apps" [class.selected]="app === selectedApp" (click)="onSelect(app)">
+          <span class="badge">{{app.id}}</span> {{app.name}}
+      </li>
+    </ul>
+    <div *ngIf="selectedApp">
+      <h2>{{selectedApp.name}} details!</h2>
+      <div><label>id: </label>{{selectedApp.id}}</div>
+      <div>
+          <label>name: </label>
+          <input [(ngModel)]="selectedApp.name" placeholder="name"/>
+      </div>
+    </div>
+  `,
   styles: [`
     .selected {
       background-color: #CFD8DC !important;
@@ -49,34 +81,15 @@ import { Component } from '@angular/core';
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `],
-  selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-
-    <h2>My Heroes</h2>
-    <ul class="apps">
-      <li *ngFor="let app of apps">
-          <span class="badge">{{app.id}}</span> {{app.name}}
-      </li>
-    </ul>
-  `
+  `]
 })
 
 export class AppComponent  {
   title = 'Digital Security Platform';
   apps = APPS;
+  selectedApp: Application;
+
+  onSelect(app: Application): void {
+    this.selectedApp = app;
+  }
 }
-
-export class Application {
-  id: number;
-  name: string;
-}
-
-const APPS: Application[] = [
-    { id: 1, name: 'DSP' },
-    { id: 2, name: 'Narco' },
-    { id: 3, name: 'Bombasto' },
-    { id: 4, name: 'Celeritas' }
-  ];
-
