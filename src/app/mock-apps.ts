@@ -1,6 +1,6 @@
 import { Application } from './application';
 
-const APPS: Application[] = [
+export const APPS: Application[] = [
 { id: 1, name: 'DSP' },
 { id: 2, name: 'Narco' },
 { id: 3, name: 'Bombasto' },
