@@ -1,9 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule }   from '@angular/forms';
 
-import { AppComponent }  from './app.component';
+import { AppComponent } from './app.component';
 import { AppDetailComponent }  from './app-detail.component';
+import { ApplicationComponent }  from './application.component';
+import { AppService } from './app.service';
 
 @NgModule({
   imports: [
@@ -12,7 +14,11 @@ import { AppDetailComponent }  from './app-detail.component';
   ],
   declarations: [
     AppComponent,
-    AppDetailComponent
+    AppDetailComponent,
+    ApplicationComponent
+  ],
+  providers: [
+    AppService
   ],
   bootstrap: [ AppComponent ]
 })
