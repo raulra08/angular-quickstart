@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard.component';
 import { AppDetailComponent }  from './app-detail.component';
 import { ApplicationComponent }  from './application.component';
 import { AppService } from './app.service';
@@ -14,6 +15,15 @@ import { AppService } from './app.service';
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     RouterModule.forRoot([
       {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
         path: 'applications',
         component: ApplicationComponent
       }
@@ -21,6 +31,7 @@ import { AppService } from './app.service';
   ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     AppDetailComponent,
     ApplicationComponent
   ],
