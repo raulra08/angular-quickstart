@@ -9,4 +9,9 @@ export class AppService {
   getApps(): Promise<Application[]> {
     return Promise.resolve(APPS);
   }
+
+  getApp(id: number): Promise<Application> {
+    return this.getApps()
+             .then(apps => apps.find(app => app.id === id));
+  }
 }

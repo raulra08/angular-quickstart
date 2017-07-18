@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 @Component({
   selector: 'my-application',
   template: `
-    <h2>My Heroes</h2>
+    <h2>My Applications</h2>
     <ul class="apps">
       <li *ngFor="let app of apps" [class.selected]="app === selectedApp" (click)="onSelect(app)">
           <span class="badge">{{app.id}}</span> {{app.name}}

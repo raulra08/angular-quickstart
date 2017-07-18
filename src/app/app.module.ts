@@ -26,6 +26,10 @@ import { AppService } from './app.service';
       {
         path: 'applications',
         component: ApplicationComponent
+      },
+      {
+        path: 'detail/:id',
+        component: AppDetailComponent
       }
     ])
   ],

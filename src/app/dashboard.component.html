@@ -1,6 +1,6 @@
-<h3>Top Applicatons</h3>
+<h3>Top Applications</h3>
 <div class="grid grid-pad">
-  <div *ngFor="let app of apps" class="col-1-4">
+  <div *ngFor="let app of apps" [routerLink]="['/detail', app.id]" class="col-1-4">
     <div class="module app">
       <h4>{{app.name}}</h4>
     </div>
