@@ -12,26 +12,7 @@ import { AppService } from './app.service';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'applications',
-        component: ApplicationComponent
-      },
-      {
-        path: 'detail/:id',
-        component: AppDetailComponent
-      }
-    ])
+    FormsModule // <-- import the FormsModule before binding with [(ngModel)]
   ],
   declarations: [
     AppComponent,
