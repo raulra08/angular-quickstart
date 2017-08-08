@@ -14,15 +14,8 @@ import { AppService } from './app.service';
     BrowserModule,
     FormsModule // <-- import the FormsModule before binding with [(ngModel)]
   ],
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    AppDetailComponent,
-    ApplicationComponent
-  ],
-  providers: [
-    AppService
-  ],
+  declarations: [ AppComponent, DashboardComponent, AppDetailComponent, ApplicationComponent ],
+  providers: [ AppService ],
   bootstrap: [ AppComponent ]
 })
 

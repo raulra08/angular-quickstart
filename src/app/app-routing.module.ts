@@ -7,7 +7,7 @@ import { ApplicationComponent }  from './application.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent` },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'applications', component: ApplicationComponent },
   { path: 'detail/:id', component: AppDetailComponent }
 ];
